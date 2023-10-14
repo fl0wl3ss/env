@@ -1,3 +1,4 @@
+
 function fish_greeting
 
 end
@@ -14,19 +15,48 @@ function attach_tmux_session_if_needed
 		return
     end
 
+    #set new_session "Create New Session"
+    #set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
+    #if test "$ID" = "$new_session"
+    #    tmux new-session
+    #else if test -n "$ID"
     tmux attach-session -t 0
+	#tmux attach-session -t default
+    #end
 end
 
 if test -z $TMUX && status --is-login
     attach_tmux_session_if_needed
 end
 
+#
 
 function fish_prompt
+
+	set -l last_status $status
 	set -l result (~/bin/vpnbash.sh)
-	echo (set_color green)"┌──"(set_color green)"  "(set_color green)"﹝"(set_color blue)"fl0wl3ss"(set_color green)"﹞"$result"─["(set_color purple)(prompt_pwd)(set_color green)"]"(set_color cyan)"ඞ"(set_color yellow)"ඞ"(set_color red)"ඞ"
-    echo (set_color green)"└─"(set_color blue)"\$ "(set_color normal)
+
+	
+	#echo (set_color green)"┌──"(set_color green)"  "(set_color green)"("(set_color blue)"fl0wl3sS"(set_color green)")"$result"─["(set_color purple)(prompt_pwd)(set_color green)"]"(set_color cyan)"ඞ"(set_color yellow)"ඞ"(set_color red)"ඞ"
+	echo -n (set_color green)"┌──"(set_color green)"﹝"(set_color blue)$USER(set_color green)"﹞"$result"─["(set_color purple)(prompt_pwd)(set_color green)"]"
+
+
+	if test $last_status -eq 0
+		echo (set_color cyan)"ඞ..."(set_color normal)
+	else if test $last_status -eq 1
+		echo (set_color yellow)"ඞ..."(set_color normal)
+	else
+			#echo -n (set_color red)"ඞ.."(set_color normal)
+		echo (set_color red)"𓇋ඞ..."(set_color normal)
+	end
+
+	
+	echo (set_color green)"└─"(set_color blue)"\$ "(set_color normal)
 end
+
+
+
+
 
 ## alias
 # HackTheBox
@@ -60,3 +90,6 @@ alias python='ipython3'
 
 # connect pwncollege
 alias dojo='ssh hacker@dojo.pwn.college'
+alias symposium='cd ~/Github/symposium;cp /mnt/c/Users/4ro3ki/Desktop/symposium/* ~/Github/symposium/;git add symposium2022_preceeding_template.docx; sudo git commit -m "alias";git push origin master'
+
+
