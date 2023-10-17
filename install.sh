@@ -23,4 +23,10 @@ cp .vimrc ~/
 cp config.fish ~/.config/fish
 cp vpnbash.sh ~/bin
 
+# debug env
+sudo apt install build-essential
+sudo apt install gdb
+git clone https://github.com/hugsy/gef.git ~/Github/gef
+
+
 
