@@ -22,7 +22,7 @@ cp .tmux.conf ~/
 cp .vimrc ~/
 cp config.fish ~/.config/fish
 cp vpnbash.sh ~/bin
-
+cp mypython ~/bin
 # debug env
 sudo apt install build-essential
 sudo apt install gdb

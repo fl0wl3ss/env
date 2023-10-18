@@ -86,7 +86,7 @@ alias l='ls -a'
 alias gdb='gdb -q'
 alias ocat='/usr/bin/cat'
 alias cat='ccat'
-alias python='ipython3'
+alias python='mypython'
 
 # connect pwncollege
 alias dojo='ssh hacker@dojo.pwn.college'

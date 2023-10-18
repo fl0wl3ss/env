@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import sys
+import subprocess
+from colorama import Fore, Style, init
+
+if len(sys.argv) > 1:
+    colored_text = f"[{Fore.BLUE}*{Fore.WHITE}]{Fore.MAGENTA} /usr/bin/python3{Style.RESET_ALL}"
+    print(colored_text)
+    command = sys.argv[1]
+    args = sys.argv[1:]
+    subprocess.run(["python3"] + args)
+else:
+    colored_text = f"[{Fore.BLUE}*{Fore.WHITE}]{Fore.MAGENTA} /usr/bin/ipython3{Style.RESET_ALL}"
+    print(colored_text)    
+
+    subprocess.run(["ipython3"])
