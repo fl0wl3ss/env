@@ -6,7 +6,7 @@ sudo apt update
 sudo apt install -y python3 python3-pip
 
 # install fish
-sudo apt isntall -y fish
+sudo apt install -y fish
 
 # vim plugins
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
